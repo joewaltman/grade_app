@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
   
+  def logo
+    image_tag("logo.png", :alt => "Pay4Grades", :class => "round")
+  end
+  
 end
