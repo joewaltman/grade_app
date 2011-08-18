@@ -1,7 +1,10 @@
 GradeApp::Application.routes.draw do
+  get "users/new"
+
   root :to => "pages#home"
   match '/privacy', :to => 'pages#privacy'
   match '/about', :to => 'pages#about'
+  match '/signup', :to => 'users#new'
   
 
 
