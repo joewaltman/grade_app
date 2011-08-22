@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-     # InviteMailer.deliver_send_invite(@user.email)
+      sign_in @user
       flash[:success] = "Welcome to the grade app, please provide the email addresses of a few donors"
       redirect_to @user
     else
