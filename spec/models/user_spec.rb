@@ -141,5 +141,28 @@ describe User do
         User.authenticate(@attr[:email], @attr[:password]).should == @user
       end    
     end
+    
+    describe "donor assocations" do
+      before(:each) do
+        @user = User.create(@attr)
+        @d1 = Factory(:donor, :user => @user, :created_at => 1.day.ago)
+        @d2 = Factory(:donor, :user => @user, :created_at => 1.hour.ago)
+ #       @d2.name = "Adam Jones"
+      end
+      
+      it "should have a donor attribute" do
+        @user.should respond_to(:donors)
+      end
+      
+ #     it "should have the right donors in the right order" do
+  #      @user.donors.should == [@d2, @d1]
+   #   end
+      
+   #   it "should have the right associated user" do
+  #      @micropost.user_id.should == @user.id
+ #       @micropost.user.should == @user
+#      end
+      
+    end
   end
 end

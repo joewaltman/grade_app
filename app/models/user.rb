@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :dob, :password, :password_confirmation
   
+  has_many :microposts
+  has_many :donors, :dependent => :destroy
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,      :presence => true, 
