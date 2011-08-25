@@ -145,8 +145,8 @@ describe User do
     describe "donor assocations" do
       before(:each) do
         @user = User.create(@attr)
-        @d1 = Factory(:donor, :user => @user, :created_at => 1.day.ago)
-        @d2 = Factory(:donor, :user => @user, :created_at => 1.hour.ago)
+   #     @d1 = Factory(:donor, :user => @user, :created_at => 1.day.ago)
+    #    @d2 = Factory(:donor, :user => @user, :created_at => 1.hour.ago)
  #       @d2.name = "Adam Jones"
       end
       

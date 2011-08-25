@@ -27,4 +27,18 @@ describe Donor do
     end
   end
   
+  describe "validations" do
+    it "should have a user id" do
+      Donor.new(@attr).should_not be_valid
+    end
+    
+    it "should require nonblank content" do
+      @user.donors.build(:name => "", :email => "").should_not be_valid
+    end
+    
+    it "should reject long emails" do
+      @user.donors.build(:email => "a" * 51).should_not be_valid
+    end
+  end
+  
 end
