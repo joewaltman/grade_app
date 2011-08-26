@@ -8,6 +8,7 @@ gem 'rake', '0.8.7'
 
 group :development do
    gem 'rspec-rails', '2.0.0.beta.18'
+   gem 'faker', '0.3.1'
 
 end
 

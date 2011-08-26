@@ -28,6 +28,19 @@ describe UsersController do
       response.should have_selector('h1', :content => @user.name)
     end
     
+    it "should show the user's donors" do
+      d1 = Factory(:donor, :user => @user)
+      d2 = Factory(:donor, :user => @user)
+      get :show, :id => @user
+      response.should have_selector('span.name', :content => d1.name)
+    end
+    
+#    it "should display the donor count" do
+#      10.times { Factory(:donor, :user => @user)}
+#      get :show, :id => @user
+#      response.should have_selector('td.sidebar', :content => @user.donors.count.to_s)
+#    end
+    
   end
 
   describe "GET 'new'" do

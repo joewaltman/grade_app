@@ -1,4 +1,19 @@
+<table class"profile">
+	<tr>
+		<td class="main">
+			<h1>
+				<%= @user.name %>
+			</h1>
 
-<h1>
-<%= @user.name %>
-</h1>
+			<% if @user.donors.any? %>
+				<table class="donors" summary="User donors">
+					<%= render @donors %>
+				</table>
+			<% end %>
+		</td>
+		<td class"sidebar round">
+			<strong>Name</strong> <%= @user.name %><br />
+			<strong>Donors</strong> <%= @user.donors.count %>
+		</td>
+	</tr>
+</table>
